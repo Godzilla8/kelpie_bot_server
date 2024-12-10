@@ -19,6 +19,9 @@ connectDatabase();
 app.use(helmet());
 app.use(express.json());
 
+app.get("/", (req, res, next) => {
+  res.send("Bot server is running");
+});
 app.post("/webhook", handleTelegramBot);
 
 app.listen(process.env.PORT, () => {

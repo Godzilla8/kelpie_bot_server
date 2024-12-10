@@ -1,5 +1,7 @@
+import "dotenv/config";
 import express from "express";
 import handleTelegramBot from "./bot.js";
+import helmet from "helmet";
 const app = express();
 
 import mongoose from "mongoose";
@@ -14,6 +16,8 @@ const connectDatabase = async () => {
 };
 
 connectDatabase();
+app.use(helmet());
+app.use(express.json());
 
 app.post("/webhook", handleTelegramBot);
 

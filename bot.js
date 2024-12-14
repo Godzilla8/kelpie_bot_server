@@ -11,7 +11,7 @@ const handleTelegramBot = async (req, res, next) => {
     if (message && message.text.startsWith("/start")) {
       const chat_id = message.chat.id;
       const username = message.chat.username;
-      const referrer_id = message.text.split(" ")[1] || "kelpie";
+      const referrer_id = message.text.split(" ")[1] || "KelpieNetwork";
       const user = await User.findOne({ chat_id });
 
       const inlineKeyboard = {
@@ -28,7 +28,7 @@ const handleTelegramBot = async (req, res, next) => {
         await User.create({
           username,
           referral_id: new_referral_id,
-          referrer_id: referrer ? referrer_id : "kelpie",
+          referrer_id: referrer ? referrer_id : "KelpieNetwork",
           chat_id,
         });
 

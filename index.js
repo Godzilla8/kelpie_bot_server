@@ -2,9 +2,8 @@ import "dotenv/config";
 import express from "express";
 import handleTelegramBot from "./bot.js";
 import helmet from "helmet";
-const app = express();
-
 import mongoose from "mongoose";
+const app = express();
 
 const connectDatabase = async () => {
   try {

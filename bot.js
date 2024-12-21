@@ -55,8 +55,7 @@ const handleTelegramBot = async (req, res, next) => {
     res.status(200).json({ message: "Request processed successfully" });
     // next();
   } catch (error) {
-    // console.error("Error handling Telegram request:", error);
-    // next(error);
+    console.log("Error handling Telegram request:", error);
     res.status(200).json({ error: "There was a server error" });
   }
 };

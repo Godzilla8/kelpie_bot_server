@@ -30,8 +30,10 @@ const handleTelegramBot = async (req, res, next) => {
           chat_id,
         });
 
-        if (referrer) referrer.referral_count += 1;
-        await referrer.save();
+        if (referrer) {
+          referrer.referral_count += 1;
+          await referrer.save();
+        }
 
         bot.sendMessage(
           chat_id,

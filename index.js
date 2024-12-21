@@ -12,10 +12,10 @@ const connectDatabase = async () => {
     console.log("Error connecting DB");
   }
 };
+connectDatabase();
 
 const app = express();
 
-connectDatabase();
 app.use(helmet());
 app.use(express.json());
 

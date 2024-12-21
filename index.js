@@ -3,7 +3,6 @@ import express from "express";
 import handleTelegramBot from "./bot.js";
 import helmet from "helmet";
 import mongoose from "mongoose";
-const app = express();
 
 const connectDatabase = async () => {
   try {
@@ -13,6 +12,8 @@ const connectDatabase = async () => {
     console.log("Error connecting DB");
   }
 };
+
+const app = express();
 
 connectDatabase();
 app.use(helmet());

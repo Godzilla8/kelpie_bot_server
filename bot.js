@@ -15,9 +15,7 @@ const handleTelegramBot = async (req, res, next) => {
       const user = await User.findOne({ chat_id });
 
       const inlineKeyboard = {
-        inline_keyboard: [
-          [{ text: "Open Kelpie App", web_app: { url: "https://kelpienetwork.com" } }],
-        ],
+        inline_keyboard: [[{ text: "Launch App", web_app: { url: "https://kelpienetwork.com" } }]],
       };
 
       if (!user) {

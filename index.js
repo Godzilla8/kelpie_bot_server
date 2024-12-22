@@ -6,10 +6,15 @@ import mongoose from "mongoose";
 
 const connectDatabase = async () => {
   try {
-    await mongoose.connect(process.env.MONGODB_URI);
+    await mongoose.connect(process.env.MONGODB_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      serverSelectionTimeoutMS: 30000, // Set timeout to 30 seconds
+      connectTimeoutMS: 30000, // Optional: Timeout for initial connection
+    });
     console.log("DB connected!");
   } catch (error) {
-    console.log("Error connecting DB");
+    console.log("Error connecting DB", error);
   }
 };
 connectDatabase();

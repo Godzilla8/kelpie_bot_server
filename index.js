@@ -3,6 +3,7 @@ import express from "express";
 import handleTelegramBot from "./bot.js";
 import helmet from "helmet";
 import mongoose from "mongoose";
+import User from "./model.js";
 
 const connectDatabase = async () => {
   try {
@@ -27,6 +28,16 @@ app.get("/", (req, res, next) => {
 });
 app.post("/webhook", handleTelegramBot);
 
+app.get("/test", async (req, res, next) => {
+  // const { referral_id } = req.body;
+  try {
+    const user = await User.findOne({ referral_id: "KelpieNetwork" });
+    res.status(200).json(user);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 app.listen(process.env.PORT, () => {
-  console.log("Bot server is running");
+  console.log(`Bot server is running on ${process.env.PORT}`);
 });

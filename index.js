@@ -7,8 +7,6 @@ import mongoose from "mongoose";
 const connectDatabase = async () => {
   try {
     await mongoose.connect(process.env.MONGODB_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
       serverSelectionTimeoutMS: 30000, // Set timeout to 30 seconds
       connectTimeoutMS: 30000, // Optional: Timeout for initial connection
     });

@@ -16,7 +16,7 @@ const connectDatabase = async () => {
     console.log("Error connecting DB", error);
   }
 };
-connectDatabase();
+await connectDatabase();
 
 const app = express();
 
